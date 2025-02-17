@@ -1,0 +1,82 @@
+@charset "utf-8";
+body {
+    background-image: url(images\ \(2\).jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+h3 {
+    color:#66CCFF
+}
+header{
+    background-image: url(images\ \(1\).jpeg);
+    color:aquamarine;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    height: 40px;
+    width: auto;
+}
+.school {
+    color:rgb(25, 0, 169)
+}
+a{
+    color:#3d04d9
+}
+header nav ul.navigation{
+    list-style: none;
+    padding:0;
+    display: flex;
+    margin: 0;
+}
+header nav ul.navigation li {
+    margin: 0 15px;
+}
+
+
+header nav ul.navigation li a:hover {
+text-decoration: underline;
+}
+#home {
+     color:#9b6a00
+}
+h2{
+    color:aqua
+}
+p{
+    color:#3700af
+}
+footer{
+    background-color:#003366;
+    color:gold;
+a{
+    color:gold
+}
+}
+teacher{
+a{
+    color:gold;
+}   
+}
+#top{
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color:black;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+}
+#top:hover {
+    background: color #333;
+}
+h1 {
+    color:white;
+}
