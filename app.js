@@ -1,11 +1,11 @@
 // Firebaseの設定
 const firebaseConfig = {
     apiKey: "AIzaSyAkLZyn-lNSRhgriZrMCgf7AXgaNA3nXZM",
-    authDomain: "ishida-school-9cf4d.firebaseapp.com",
-    projectId: "ishida-school-9cf4d",
-    storageBucket: "ishida-school-9cf4d.firebasestorage.app",
-    messagingSenderId: "909704780699",
-    appId: "1:909704780699:web:a92ec65bb54074899e1f3e",
+  authDomain: "ishida-school-9cf4d.firebaseapp.com",
+  projectId: "ishida-school-9cf4d",
+  storageBucket: "ishida-school-9cf4d.firebasestorage.app",
+  messagingSenderId: "909704780699",
+  appId: "1:909704780699:web:a92ec65bb54074899e1f3e",
   };
   
   // Firebaseの初期化
