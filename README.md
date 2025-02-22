@@ -1,2 +1,2 @@
 全ては石田中のために、、、、
-https://ishida-isd.github.io/ishida-student/
+https://ishida-isd.github.io/ishida-student/public/index.html
