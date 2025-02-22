@@ -23,6 +23,10 @@ const firebaseConfig = {
         alert('Logged in successfully');
       }).catch((error) => {
         console.error('Error logging in:', error);
+        window.location.href = 'dashboard.html';
+    }).catch((error) => {
+      console.error('Error logging in:', error);
+    
       });
     } else {
       alert('Invalid username or password');
