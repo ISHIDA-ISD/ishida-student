@@ -5,7 +5,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     a{
-        color:rgb(81, 255, 246);
+        color:gold;
     }
 }
 h3 {
@@ -46,7 +46,7 @@ text-decoration: underline;
      color:#340069
 }
 h2{
-    color:gold;
+    color:rgb(0, 255, 170);
 }
 p{
     color:#3300a2
