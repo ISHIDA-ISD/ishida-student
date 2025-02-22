@@ -23,11 +23,15 @@ teacher a {
 
 /* Header */
 header {
-    background-color: white; /* 背景色を白に設定 */
+    background-image: url('./images/1.jpeg'); /* ヘッダーの背景画像を指定 */
+    background-repeat: no-repeat; /* 画像の繰り返しをしない */
+    background-size: cover; /* 画像がヘッダー全体に表示されるように */
+    background-attachment: fixed; /* 背景画像を固定 */
     color: rgb(0, 16, 137);
     justify-content: space-between;
     align-items: center;
-}
+    margin: 0; /* ヘッダーのマージンをリセット */
+    padding: 0; /* ヘッダーのパディングをリセット */
 
 header a {
     color: rgb(35, 5, 69);
