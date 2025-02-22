@@ -29,6 +29,7 @@ const firebaseConfig = {
         console.error('Error logging in:', error);
       
         console.error('Error registering user:', error);
+      })
       
     } else {
       alert('Please provide both username and password');
