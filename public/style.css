@@ -110,4 +110,10 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    .kosugi-maru-regular {
+        font-family: "Kosugi Maru", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      
 }
