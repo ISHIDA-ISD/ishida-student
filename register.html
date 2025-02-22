@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./password.css">
-    <title>登録</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration</title>
+  <link rel="stylesheet" href="./password.css">
 </head>
 <body>
-    <h2>アカウント作成</h2>
-    <div id="register">
-        <input type="text" id="newUsername" placeholder="Username">
-        <input type="password" id="newPassword" placeholder="Password">
-        <button id="registerBtn">登録</button>
-    </div>
-    
-  　<script type="module" src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-  　<script type="module" src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-    <script src="./app-register.js"></script>
-
+  <h1>登録</h1>
+  <div id="register">
+    <h2>アカウントを作成</h2>
+    <input type="text" id="newUsername" placeholder="Username">
+    <input type="password" id="newPassword" placeholder="Password">
+    <button id="registerBtn">登録！</button>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+  <script src="app-register.js"></script>
 </body>
 </html>
