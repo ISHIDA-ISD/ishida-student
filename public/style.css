@@ -4,15 +4,21 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    a{
+        color:rgb(81, 255, 246);
+    }
 }
 h3 {
-    color:rgb(181, 165, 193);
+    color:rgb(235, 209, 255);
 }
 header{
     background-image: url(images\ \(1\).jpeg);
     color:rgb(0, 16, 137);
     justify-content: space-between;
     align-items: center;
+    a{
+        color:rgb(35, 5, 69);
+    }
 }
 .logo {
     height: 40px;
@@ -21,9 +27,7 @@ header{
 .school {
     color:rgb(0, 88, 12)
 }
-a{
-    color:rgb(38, 255, 0);
-}
+
 header nav ul.navigation{
     list-style: none;
     padding:0;
