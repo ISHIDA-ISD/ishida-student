@@ -1,5 +1,11 @@
 @charset "utf-8";
-
+/*font小杉丸*/
+.kosugi-maru-regular {
+    font-family: "Kosugi Maru", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
 /* Body */
 body {
     background-image: url(./背景１.gif);
