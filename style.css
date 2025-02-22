@@ -80,3 +80,12 @@ a{
 h1 {
     color:white;
 }
+button {
+    padding: 10px;
+    width: 100%;
+    background-color:#007bff;
+    color: white;
+    border: none;
+    border-radius: 5p;
+    cursor: pointer;
+}
