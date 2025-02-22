@@ -1,65 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ログイン</title>
-  <link rel="stylesheet" href="./password.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログイン</title>
 </head>
 <body>
-  <nav> 
-    <ul class="navigation">
-        <li><a href="./index.html"><img src="./unnamed.png" alt="logo" class="logo"></a> 
-    </ul>
-</nav>
- 
-  <h1>ログインして〜</h1>
-  <div id="login">
-    <h2>サインイン！</h2>
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
-    <button id="loginBtn">Login</button>
-    <p>まだアカウント持ってない？ <a href="register.html">なら作ろう！メアド不要です</a></p>
-  </div>
-  <!-- CDNからFirebaseを読み込む -->
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+    <h1>ログインしてください</h1>
+    <input type="text" id="username" placeholder="ユーザー名">
+    <input type="password" id="password" placeholder="パスワード">
+    <button onclick="login()">ログイン</button>
+    <a href="register.html">まだアカウント持ってない？登録しましょう！</a>
 
-    // Firebaseの設定
-    const firebaseConfig = {
-      apiKey: "AIzaSyAkLZyn-lNSRhgriZrMCgf7AXgaNA3nXZM",
-      authDomain: "ishida-school-9cf4d.firebaseapp.com",
-      projectId: "ishida-school-9cf4d",
-      storageBucket: "ishida-school-9cf4d.firebasestorage.app",
-      messagingSenderId: "909704780699",
-      appId: "1:909704780699:web:a92ec65bb54074899e1f3e",
-      measurementId: "G-59HJ449QTW"
-    };
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const storedUsername = localStorage.getItem('username');
+            const storedPassword = localStorage.getItem('password');
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-
-    document.getElementById('loginBtn').addEventListener('click', () => {
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-
-      if (username && password) {
-        signInWithEmailAndPassword(auth, username + '@example.com', password)
-          .then((userCredential) => {
-            alert('Logged in successfully');
-            window.location.href = 'dashboard.html';
-          })
-          .catch((error) => {
-            console.error('Error logging in:', error);
-          });
-      } else {
-        alert('Please provide both username and password');
-      }
-    });
-  </script>
+            if (username === storedUsername && password === storedPassword) {
+                alert('ログイン成功');
+            } else {
+                alert('ログイン失敗');
+            }
+        }
+    </script>
 </body>
 </html>
-
