@@ -1,3 +1,7 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 // Firebaseの設定
 const firebaseConfig = {
   apiKey: "AIzaSyAkLZyn-lNSRhgriZrMCgf7AXgaNA3nXZM",
@@ -6,21 +10,19 @@ const firebaseConfig = {
   storageBucket: "ishida-school-9cf4d.firebasestorage.app",
   messagingSenderId: "909704780699",
   appId: "1:909704780699:web:a92ec65bb54074899e1f3e",
+  measurementId: "G-59HJ449QTW"
 };
 
-// Firebaseの初期化
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
-
-const auth = firebase.auth();
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 document.getElementById('loginBtn').addEventListener('click', () => {
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
 
   if (username && password) {
-    auth.signInWithEmailAndPassword(username + '@example.com', password)
+    signInWithEmailAndPassword(auth, username + '@example.com', password)
       .then((userCredential) => {
         alert('Logged in successfully');
         window.location.href = 'dashboard.html';
