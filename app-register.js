@@ -21,7 +21,7 @@ document.getElementById('registerBtn').addEventListener('click', () => {
     firebase.auth().createUserWithEmailAndPassword(newUsername + '@example.com', newPassword)
       .then((userCredential) => {
         alert('User registered successfully');
-        window.location.href = 'dashboard.html';
+        window.location.href = 'login.html';
       })
       .catch((error) => {
         console.error('Error registering user:', error);
