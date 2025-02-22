@@ -17,7 +17,7 @@ teacher a {
 
 /* Header */
 header {
-    background-image: url(images/1.jpeg);
+    background-color: white; /* 背景色を白に設定 */
     color: rgb(0, 16, 137);
     justify-content: space-between;
     align-items: center;
