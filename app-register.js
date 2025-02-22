@@ -1,6 +1,5 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+import { getAuth, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
 
 // Firebaseの設定
 const firebaseConfig = {
@@ -17,19 +16,30 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-document.getElementById('registerBtn').addEventListener('click', () => {
+document.getElementById('registerBtn').addEventListener('click', async () => {
   const newUsername = document.getElementById('newUsername').value;
   const newPassword = document.getElementById('newPassword').value;
 
   if (newUsername && newPassword) {
-    createUserWithEmailAndPassword(auth, newUsername + '@example.com', newPassword)
-      .then((userCredential) => {
-        alert('User registered successfully');
-        window.location.href = 'login.html';
-      })
-      .catch((error) => {
-        console.error('Error registering user:', error);
+    try {
+      // バックエンドAPIにリクエストを送り、カスタムトークンを取得します
+      const response = await fetch('/api/authenticate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username: newUsername, password: newPassword })
       });
+      const data = await response.json();
+      const customToken = data.customToken;
+
+      // Firebaseにカスタムトークンでログインします
+      await signInWithCustomToken(auth, customToken);
+      alert('User registered and logged in successfully');
+      window.location.href = 'dashboard.html';
+    } catch (error) {
+      console.error('Error registering user:', error);
+    }
   } else {
     alert('Please provide both username and password');
   }
