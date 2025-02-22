@@ -1,40 +1,34 @@
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// Firebaseの設定
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
+import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
+
+
+
+// Firebaseの初期化
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 const firebaseConfig = {
-    apiKey: "AIzaSyAkLZyn-lNSRhgriZrMCgf7AXgaNA3nXZM",
-    authDomain: "ishida-school-9cf4d.firebaseapp.com",
-    projectId: "ishida-school-9cf4d",
-    storageBucket: "ishida-school-9cf4d.firebasestorage.app",
-    messagingSenderId: "909704780699",
-    appId: "1:909704780699:web:a92ec65bb54074899e1f3e"
-    measurementId: "G-59HJ449QTW"
-  };
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  
-  // Firebaseの初期化
-  firebase.initializeApp(firebaseConfig);
-  
-  const auth = firebase.auth();
-  
-  document.getElementById('loginBtn').addEventListener('click', () => {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    
-    // ユーザー認証（簡易的な例）
-    if (username === 'testuser' && password === 'testpass') {
-      auth.signInAnonymously().then(() => {
-        alert('Logged in successfully');
-      }).catch((error) => {
-        console.error('Error logging in:', error);
-        window.location.href = 'dashboard.html';
-    }).catch((error) => {
-      console.error('Error logging in:', error);
-    
+  apiKey: "AIzaSyAkLZyn-lNSRhgriZrMCgf7AXgaNA3nXZM",
+  authDomain: "ishida-school-9cf4d.firebaseapp.com",
+  projectId: "ishida-school-9cf4d",
+  storageBucket: "ishida-school-9cf4d.firebasestorage.app",
+  messagingSenderId: "909704780699",
+  appId: "1:909704780699:web:a92ec65bb54074899e1f3e",
+  measurementId: "G-59HJ449QTW"
+};
+document.getElementById('registerBtn').addEventListener('click', () => {
+  const newUsername = document.getElementById('newUsername').value;
+  const newPassword = document.getElementById('newPassword').value;
+
+  if (newUsername && newPassword) {
+    createUserWithEmailAndPassword(auth, newUsername + '@example.com', newPassword)
+      .then((userCredential) => {
+        alert('User registered successfully');
+        window.location.href = 'login.html';
+      })
+      .catch((error) => {
+        console.error('Error registering user:', error);
       });
-    } else {
-      alert('Invalid username or password');
-    }
-  });
-  
+  } else {
+    alert('Please provide both username and password');
+  }
+});
