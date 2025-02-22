@@ -1,12 +1,17 @@
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 // Firebaseの設定
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyAkLZyn-lNSRhgriZrMCgf7AXgaNA3nXZM",
+    authDomain: "ishida-school-9cf4d.firebaseapp.com",
+    projectId: "ishida-school-9cf4d",
+    storageBucket: "ishida-school-9cf4d.firebasestorage.app",
+    messagingSenderId: "909704780699",
+    appId: "1:909704780699:web:a92ec65bb54074899e1f3e"
+    measurementId: "G-59HJ449QTW"
   };
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
   
   // Firebaseの初期化
   firebase.initializeApp(firebaseConfig);
