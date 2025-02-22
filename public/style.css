@@ -6,11 +6,11 @@ body {
     background-attachment: fixed;
 }
 h3 {
-    color:#66CCFF
+    color:gold;
 }
 header{
     background-image: url(images\ \(1\).jpeg);
-    color:aquamarine;
+    color:gold;
     justify-content: space-between;
     align-items: center;
 }
@@ -19,10 +19,10 @@ header{
     width: auto;
 }
 .school {
-    color:rgb(25, 0, 169)
+    color:rgb(255, 109, 109)
 }
 a{
-    color:#3d04d9
+    color:goldenrod;
 }
 header nav ul.navigation{
     list-style: none;
@@ -42,7 +42,7 @@ text-decoration: underline;
      color:#9b6a00
 }
 h2{
-    color:aqua
+    color:gold;
 }
 p{
     color:#3700af
