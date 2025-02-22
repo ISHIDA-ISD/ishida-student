@@ -9,7 +9,9 @@ const firebaseConfig = {
 };
 
 // Firebaseの初期化
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 const auth = firebase.auth();
 
@@ -18,10 +20,10 @@ document.getElementById('registerBtn').addEventListener('click', () => {
   const newPassword = document.getElementById('newPassword').value;
 
   if (newUsername && newPassword) {
-    firebase.auth().createUserWithEmailAndPassword(newUsername + '@example.com', newPassword)
+    auth.createUserWithEmailAndPassword(newUsername + '@example.com', newPassword)
       .then((userCredential) => {
         alert('User registered successfully');
-        window.location.href = 'login.html';
+        window.location.href = 'dashboard.html';
       })
       .catch((error) => {
         console.error('Error registering user:', error);
