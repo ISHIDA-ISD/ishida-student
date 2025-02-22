@@ -24,7 +24,7 @@ const firebaseConfig = {
       // ここでは簡単な方法として匿名認証を使用
       auth.signInAnonymously().then(() => {
         alert('User registered successfully');
-        window.location.href = './dashbord.html';
+        window.location.href = 'login.html';
       }).catch((error) => {
         console.error('Error logging in:', error);
       
