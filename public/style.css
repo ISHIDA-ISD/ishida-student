@@ -1,11 +1,4 @@
 @charset "utf-8";
-/*font小杉丸*/
-.kosugi-maru-regular {
-    font-family: "Kosugi Maru", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
 /* Body */
 body {
     background-image: url(./背景１.gif);
@@ -23,6 +16,8 @@ teacher a {
 
 /* Header */
 header {
+    margin: 0; /* ヘッダーのマージンをリセット */
+    padding: 0; /* ヘッダーのパディングをリセット */
     background-image: url('./images/1.jpeg'); /* ヘッダーの背景画像を指定 */
     background-repeat: no-repeat; /* 画像の繰り返しをしない */
     background-size: cover; /* 画像がヘッダー全体に表示されるように */
@@ -30,8 +25,7 @@ header {
     color: rgb(0, 16, 137);
     justify-content: space-between;
     align-items: center;
-    margin: 0; /* ヘッダーのマージンをリセット */
-    padding: 0; /* ヘッダーのパディングをリセット */
+   
 }
 header a {
     color: rgb(35, 5, 69);
