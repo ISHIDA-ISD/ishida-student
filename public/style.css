@@ -8,7 +8,6 @@ body {
     background-attachment: fixed;
     margin: 0; /* ボディ全体のマージンをリセット */
     padding: 0; /* ボディ全体のパディングをリセット */
-    text-align: center; /* 文字を中央揃えにする */
 }
 
 body a,
@@ -16,14 +15,13 @@ footer a,
 header a,
 teacher a {
     color: gold;
-    text-align: center; /* 文字を中央揃えにする */
 }
 
 /* Header */
 header {
     margin: 0; /* ヘッダーのマージンをリセット */
     padding: 0; /* ヘッダーのパディングをリセット */
-    background-color: rgb(219, 251, 255); /* 背景色を白に設定 */
+    background-color: rgb(216, 250, 255); /* 背景色を白に設定 */
     color: gold;
     justify-content: space-between;
     align-items: center;
@@ -37,7 +35,6 @@ header nav ul.navigation {
     list-style: none;
     padding: 0;
     display: flex;
-    justify-content: center; /* ナビゲーションアイテムを中央に配置 */
     margin: 0;
 }
 
@@ -52,46 +49,38 @@ header nav ul.navigation li a:hover {
 /* Elements */
 h1 {
     color: white;
-    text-align: center; /* 文字を中央揃えにする */
 }
 
 h2, h3, p {
     color: rgb(0, 255, 170);
-    text-align: center; /* 文字を中央揃えにする */
 }
 
 .school {
     color: rgb(14, 9, 43);
-    text-align: center; /* 文字を中央揃えにする */
 }
 
 #home {
     color: #340069;
-    text-align: center; /* 文字を中央揃えにする */
 }
 
 .logo {
     height: 40px;
     width: auto;
-    text-align: center; /* 文字を中央揃えにする */
 }
 
 /* Footer */
 footer {
     background-color: #003366;
     color: gold;
-    text-align: center; /* 文字を中央揃えにする */
 }
 
 footer a {
     color: rgb(0, 255, 170);
-    text-align: center; /* 文字を中央揃えにする */
 }
 
 /* Teacher */
 teacher a {
     color: rgb(0, 247, 255);
-    text-align: center; /* 文字を中央揃えにする */
 }
 
 /* Back to top button */
@@ -109,7 +98,6 @@ teacher a {
     cursor: pointer;
     padding: 15px;
     border-radius: 4px;
-    text-align: center; /* 文字を中央揃えにする */
 }
 
 #top:hover {
@@ -125,5 +113,4 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    text-align: center; /* 文字を中央揃えにする */
 }
