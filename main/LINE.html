@@ -19,8 +19,22 @@
     <div class="main-content">
         <h1>LINE</h1>
         <p>ホーム→友だち追加でsherlockに送ってください</p>
+        <button class="fullscreen-btn" onclick="toggleFullScreen()">全画面</button>
         <!-- Glitchの埋め込みコードをここに追加 -->
-        <iframe src="https://sticky-quasar-change.glitch.me/login/login.html" allow="geolocation; microphone; camera; midi; encrypted-media" class="glitch-embed"></iframe>
+        <iframe id="glitch-iframe" src="https://sticky-quasar-change.glitch.me/login/login.html" allow="geolocation; microphone; camera; midi; encrypted-media"></iframe>
     </div>
+
+    <script>
+        function toggleFullScreen() {
+            var iframe = document.getElementById('glitch-iframe');
+            if (!document.fullscreenElement) {
+                iframe.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+    </script>
 </body>
 </html>

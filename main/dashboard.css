@@ -40,9 +40,24 @@ body {
 }
 
 .glitch-embed {
-    width: 100%; /* 最大幅を使用 */
-    height: 460px;
+    width: 100%;
+    height: calc(100vh - 100px); /* 画面の高さに応じてサイズを調整 */
     border: 0;
     display: block;
-    margin-left: auto; /* 右側に寄せる */
+    margin-left: auto;
+}
+
+.fullscreen-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.fullscreen-btn:hover {
+    background-color: #0056b3;
 }
