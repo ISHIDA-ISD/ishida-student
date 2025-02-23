@@ -7,6 +7,9 @@ body {
     display: flex;
     font-family: Arial, sans-serif;
 }
+h1 {
+    color : gold;
+}
 
 .sidebar {
     height: 100vh;
