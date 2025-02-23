@@ -1,10 +1,13 @@
 @charset "utf-8";
+
 /* Body */
 body {
     background-image: url(./背景１.gif);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    margin: 0; /* ボディ全体のマージンをリセット */
+    padding: 0; /* ボディ全体のパディングをリセット */
 }
 
 body a,
@@ -16,16 +19,16 @@ teacher a {
 
 /* Header */
 header {
-    margin: 0; /* ヘッダーのマージンをリセット */
-    padding: 0; /* ヘッダーのパディングをリセット */
-    background-repeat: no-repeat; /* 画像の繰り返しをしない */
-    background-size: cover; /* 画像がヘッダー全体に表示されるように */
-    background-attachment: fixed; /* 背景画像を固定 */
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     color: gold;
     justify-content: space-between;
     align-items: center;
-   
 }
+
 header a {
     color: rgb(35, 5, 69);
 }
@@ -50,12 +53,7 @@ h1 {
     color: white;
 }
 
-h2,
-p {
-    color: rgb(0, 255, 170);
-}
-
-h3 {
+h2, h3, p {
     color: rgb(0, 255, 170);
 }
 
@@ -76,6 +74,10 @@ h3 {
 footer {
     background-color: #003366;
     color: gold;
+}
+
+footer a {
+    color: rgb(0, 255, 170);
 }
 
 /* Teacher */
@@ -113,5 +115,4 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-      
-};
+}
