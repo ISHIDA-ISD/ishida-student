@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./dashboard.css">
 </head>
 <body>
-    <div class="sidebar" id="sidebar">
+    <div class="sidebar">
         <a href="./index.html">ホーム</a>
         <a href="./dashboard.html">ダッシュボード</a>
         <a href="./LINE.html">学校で使えるLINE</a>
@@ -16,29 +16,11 @@
         <a href="./index.html#teacher">先生はこちら</a>
     </div>
 
-    <div class="main-content" id="main-content">
+    <div class="main-content">
         <h1>LINE</h1>
         <p>ホーム→友だち追加でsherlockに送ってください</p>
         <!-- Glitchの埋め込みコードをここに追加 -->
-        <iframe src="https://sticky-quasar-change.glitch.me/login/login.html" allow="geolocation; microphone; camera; midi; encrypted-media" style="height: 460px; width: 100%; border: 0;"></iframe>
+        <iframe src="https://sticky-quasar-change.glitch.me/login/login.html" allow="geolocation; microphone; camera; midi; encrypted-media" class="glitch-embed"></iframe>
     </div>
-
-    <script>
-        document.getElementById('main-content').addEventListener('click', function(event) {
-            var sidebar = document.getElementById('sidebar');
-            if (!sidebar.classList.contains('collapsed') && event.clientX > window.innerWidth * 0.75) {
-                sidebar.classList.add('collapsed');
-                document.getElementById('main-content').classList.add('expanded');
-            }
-        });
-
-        document.getElementById('sidebar').addEventListener('click', function(event) {
-            if (event.clientX < 250) {
-                var sidebar = document.getElementById('sidebar');
-                sidebar.classList.remove('collapsed');
-                document.getElementById('main-content').classList.remove('expanded');
-            }
-        });
-    </script>
 </body>
 </html>

@@ -19,11 +19,6 @@ body {
     color: white;
     overflow-x: hidden;
     padding-top: 20px;
-    transition: transform 0.3s ease;
-}
-
-.sidebar.collapsed {
-    transform: translateX(-100%);
 }
 
 .sidebar a {
@@ -41,10 +36,13 @@ body {
 .main-content {
     margin-left: 250px;
     padding: 20px;
-    width: 100%;
-    transition: margin-left 0.3s ease;
+    width: calc(100% - 250px); /* サイドバーの幅を引いた残りの幅を使用 */
 }
 
-.main-content.expanded {
-    margin-left: 0;
+.glitch-embed {
+    width: 100%; /* 最大幅を使用 */
+    height: 460px;
+    border: 0;
+    display: block;
+    margin-left: auto; /* 右側に寄せる */
 }
