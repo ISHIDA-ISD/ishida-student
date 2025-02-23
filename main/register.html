@@ -15,29 +15,15 @@
     <p id="error-message" style="color:red;"></p> <!-- エラーメッセージ表示用の要素を追加 -->
 
     <script>
-        async function register() {
+        function register() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const errorMessage = document.getElementById('error-message');
 
             if (username && password) {
-                try {
-                    const response = await fetch('https://modern-ten-fin.glitch.me/main/register.html', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ username, password })
-                    });
-                    if (response.ok) {
-                        alert('登録完了');
-                        window.location.href = 'dashboard.html'; // 登録完了後にdashboard.htmlにリダイレクト
-                    } else {
-                        errorMessage.textContent = '登録に失敗しました。';
-                    }
-                } catch (error) {
-                    errorMessage.textContent = 'エラーが発生しました。';
-                }
+                // ここに登録処理を追加
+                alert('登録完了');
+                window.location.href = 'dashboard.html'; // 登録完了後にdashboard.htmlにリダイレクト
             } else {
                 errorMessage.textContent = 'ユーザー名とパスワードを入力してください。';
             }

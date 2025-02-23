@@ -15,29 +15,15 @@
     <p id="error-message" style="color:red;"></p> <!-- エラーメッセージ表示用の要素を追加 -->
 
     <script>
-        async function login() {
+        function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const errorMessage = document.getElementById('error-message');
 
             if (username && password) {
-                try {
-                    const response = await fetch('https://modern-ten-fin.glitch.me/main/login.html', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ username, password })
-                    });
-                    if (response.ok) {
-                        alert('ログイン成功');
-                        window.location.href = 'dashboard.html'; // ログイン成功後にdashboard.htmlにリダイレクト
-                    } else {
-                        errorMessage.textContent = 'ログイン失敗。ユーザー名またはパスワードが正しくありません。';
-                    }
-                } catch (error) {
-                    errorMessage.textContent = 'エラーが発生しました。';
-                }
+                // ここにログイン処理を追加
+                alert('ログイン成功');
+                window.location.href = 'dashboard.html'; // ログイン成功後にdashboard.htmlにリダイレクト
             } else {
                 errorMessage.textContent = 'ユーザー名とパスワードを入力してください。';
             }
