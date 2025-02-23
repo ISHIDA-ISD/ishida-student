@@ -10,6 +10,9 @@ body {
 h1 {
     color : gold;
 }
+p {
+    color : aqua;
+}
 
 .sidebar {
     height: 100vh;
