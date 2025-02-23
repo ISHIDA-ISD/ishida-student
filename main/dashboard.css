@@ -1,11 +1,10 @@
 body {
     background-image: url(./z.gif);
-    width: auto;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    display: flex;
     margin: 0;
+    display: flex;
     font-family: Arial, sans-serif;
 }
 
@@ -37,14 +36,6 @@ body {
     margin-left: 250px; /* サイドバーの幅分だけ左にマージンを追加 */
     padding: 20px;
     width: calc(100% - 250px); /* サイドバーの幅分だけ幅を調整 */
-}
-
-.glitch-embed {
-    width: 100%;
-    height: calc(100vh - 100px); /* 画面の高さに応じてサイズを調整 */
-    border: 0;
-    display: block;
-    margin-left: auto;
 }
 
 .fullscreen-btn {
