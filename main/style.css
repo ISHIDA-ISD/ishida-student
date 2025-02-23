@@ -17,6 +17,16 @@ teacher a {
     color: gold;
 }
 
+/* fade-in setting*/
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
 /* Header */
 header {
     margin: 0; /* ヘッダーのマージンをリセット */
