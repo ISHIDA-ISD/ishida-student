@@ -72,6 +72,12 @@ h2, h3, p {
 footer {
     background-color: #003366;
     color: gold;
+    background-color: #003366;
+    color: gold;
+    margin: 0; /* フッターのマージンをリセット */
+    padding: 0; /* フッターのパディングをリセット */
+    width: 100%; /* フッターの幅を100%に設定 */
+    box-sizing: border-box; /* パディングとボーダーを含める */
 }
 
 footer a {
