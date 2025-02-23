@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ログイン</title>
+    <link rel="stylesheet" href="./dashbord.css"> <!-- 外部スタイルシートをリンク -->
 </head>
 <body>
     <h1>ログインしてください</h1>
@@ -11,6 +12,7 @@
     <input type="password" id="password" placeholder="パスワード">
     <button onclick="login()">ログイン</button>
     <a href="register.html">まだアカウント持ってない？登録しましょう！</a>
+    <p id="error-message" style="color:red;"></p> <!-- エラーメッセージ表示用の要素を追加 -->
 
     <script>
         function login() {
@@ -18,11 +20,13 @@
             const password = document.getElementById('password').value;
             const storedUsername = localStorage.getItem('username');
             const storedPassword = localStorage.getItem('password');
+            const errorMessage = document.getElementById('error-message');
 
             if (username === storedUsername && password === storedPassword) {
                 alert('ログイン成功');
+                window.location.href = 'dashboard.html'; // ログイン成功後にdashboard.htmlにリダイレクト
             } else {
-                alert('ログイン失敗');
+                errorMessage.textContent = 'ログイン失敗。ユーザー名またはパスワードが正しくありません。';
             }
         }
     </script>
