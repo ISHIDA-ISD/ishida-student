@@ -15,18 +15,31 @@
     <p id="error-message" style="color:red;"></p> <!-- エラーメッセージ表示用の要素を追加 -->
 
     <script>
-        function login() {
+        async function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            const storedUsername = localStorage.getItem('username');
-            const storedPassword = localStorage.getItem('password');
             const errorMessage = document.getElementById('error-message');
 
-            if (username === storedUsername && password === storedPassword) {
-                alert('ログイン成功');
-                window.location.href = './dashboard.html'; // ログイン成功後にdashbord.htmlにリダイレクト
+            if (username && password) {
+                try {
+                    const response = await fetch('https://your-glitch-project-url.glitch.me/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ username, password })
+                    });
+                    if (response.ok) {
+                        alert('ログイン成功');
+                        window.location.href = 'dashboard.html'; // ログイン成功後にdashboard.htmlにリダイレクト
+                    } else {
+                        errorMessage.textContent = 'ログイン失敗。ユーザー名またはパスワードが正しくありません。';
+                    }
+                } catch (error) {
+                    errorMessage.textContent = 'エラーが発生しました。';
+                }
             } else {
-                errorMessage.textContent = 'ログイン失敗。ユーザー名またはパスワードが正しくありません。';
+                errorMessage.textContent = 'ユーザー名とパスワードを入力してください。';
             }
         }
     </script>
