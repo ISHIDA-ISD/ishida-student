@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ユーザー登録</title>
+    <link rel="stylesheet" href="./password.css"> <!-- 外部スタイルシートをリンク -->
 </head>
 <body>
     <h1>登録しましょう！</h1>
@@ -11,15 +12,22 @@
     <input type="password" id="password" placeholder="パスワード">
     <button onclick="register()">登録！</button>
     <a href="login.html">ログインページへ</a>
+    <p id="error-message" style="color:red;"></p> <!-- エラーメッセージ表示用の要素を追加 -->
 
     <script>
         function register() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            localStorage.setItem('username', username);
-            localStorage.setItem('password', password);
-            alert('登録完了');
-            window.location.href = `dashbord.html`;
+            const errorMessage = document.getElementById('error-message');
+
+            if (username && password) {
+                localStorage.setItem('username', username);
+                localStorage.setItem('password', password);
+                alert('登録完了');
+                window.location.href = 'dashboard.html'; // 登録完了後にdashboard.htmlにリダイレクト
+            } else {
+                errorMessage.textContent = 'ユーザー名とパスワードを入力してください。';
+            }
         }
     </script>
 </body>
