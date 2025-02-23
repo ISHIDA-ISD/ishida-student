@@ -1,12 +1,24 @@
-body{
+body {
     background-image: url(./z.gif);
     width: auto;
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;    
+    background-attachment: fixed;
     display: flex;
     margin: 0;
     font-family: Arial, sans-serif;
+}
+
+.toggle-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
 }
 
 .sidebar {
@@ -19,6 +31,11 @@ body{
     color: white;
     overflow-x: hidden;
     padding-top: 20px;
+    transition: transform 0.3s ease;
+}
+
+.sidebar.collapsed {
+    transform: translateX(-100%);
 }
 
 .sidebar a {
@@ -37,4 +54,9 @@ body{
     margin-left: 250px;
     padding: 20px;
     width: 100%;
+    transition: margin-left 0.3s ease;
+}
+
+.main-content.expanded {
+    margin-left: 0;
 }

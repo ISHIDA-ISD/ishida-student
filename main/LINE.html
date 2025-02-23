@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="./dashboard.css">
 </head>
 <body>
-    <div class="sidebar">
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    <div class="sidebar" id="sidebar">
         <a href="./index.html">ホーム</a>
         <a href="./dashboard.html">ダッシュボード</a>
         <a href="./LINE.html">学校で使えるLINE</a>
@@ -16,11 +17,20 @@
         <a href="./index.html#teacher">先生はこちら</a>
     </div>
     
-    <main>
+    <main id="main-content">
         <h1>LINE</h1>
         <p>ホーム→友だち追加でsherlockに送ってください</p>
         <!-- Glitchの埋め込みコードをここに追加 -->
         <iframe src="https://sticky-quasar-change.glitch.me/login/login.html" allow="geolocation; microphone; camera; midi; encrypted-media" style="height: 460px; width: 100%; border: 0;"></iframe>
     </main>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            var mainContent = document.getElementById('main-content');
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+        }
+    </script>
 </body>
 </html>
