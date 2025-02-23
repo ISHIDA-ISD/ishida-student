@@ -1,17 +1,25 @@
 {
-    "name": "your-project-name",
-    "version": "1.0.0",
-    "main": "api/authenticate.js",
-    "dependencies": {
-        "body-parser": "^1.20.3",
-        "express": "^4.21.2",
-        "firebase-admin": "^9.11.0"
-    },
-    "description": "全ては石田中のために、、、、 このサイトに行ってください↓ https://ishida-isd.github.io/ishida-student/main/index.html",
+    "name": "hello-express",
+    "version": "0.0.1",
+    "description": "A simple Node app built on Express, instantly up and running.",
+    "main": "server.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+      "start": "node server.js"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC"
-}
+    "dependencies": {
+      "express": "^4.17.1",
+      "body-parser": "^1.19.0"
+    },
+    "engines": {
+      "node": "14.x"
+    },
+    "repository": {
+      "url": "https://glitch.com/edit/#!/hello-express"
+    },
+    "license": "MIT",
+    "keywords": [
+      "node",
+      "glitch",
+      "express"
+    ]
+  }
