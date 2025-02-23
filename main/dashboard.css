@@ -34,9 +34,9 @@ body {
 }
 
 .main-content {
-    margin-left: 250px;
+    margin-left: 250px; /* サイドバーの幅分だけ左にマージンを追加 */
     padding: 20px;
-    width: calc(100% - 250px); /* サイドバーの幅を引いた残りの幅を使用 */
+    width: calc(100% - 250px); /* サイドバーの幅分だけ幅を調整 */
 }
 
 .glitch-embed {
