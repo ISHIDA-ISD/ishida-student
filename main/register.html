@@ -29,7 +29,7 @@
 
             if (username && password) {
                 // ここに登録処理を追加
-                setCookie('username', username, 7); // クッキーにユーザー名を保存（7日間有効）
+                setCookie('username', username, 365); // クッキーにユーザー名を保存（7日間有効）
                 alert('登録完了');
                 window.location.href = 'dashboard.html'; // 登録完了後にdashboard.htmlにリダイレクト
             } else {
