@@ -34,6 +34,14 @@
             } else {
                 document.exitFullscreen();
             }
+            window.addEventListener('resize', function() {
+            // ウィンドウサイズ変更時にiframeの高さを調整
+            const iframe = document.getElementById('contentFrame');
+            iframe.style.height = window.innerHeight + 'px';
+        });
+
+        // 初期読み込み時にもiframeの高さを調整
+        document.getElementById('contentFrame').style.height = window.innerHeight + 'px';
         }
     </script>
 </body>
