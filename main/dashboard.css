@@ -58,3 +58,9 @@ p {
 .fullscreen-btn:hover {
     background-color: #0056b3;
 }
+a{
+    color : red;
+}
+p{
+    color : red;
+}
