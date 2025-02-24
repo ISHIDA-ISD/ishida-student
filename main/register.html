@@ -15,6 +15,13 @@
     <p id="error-message" style="color:red;"></p> <!-- エラーメッセージ表示用の要素を追加 -->
 
     <script>
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days*24*60*60*1000));
+            const expires = "expires="+ d.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
         function register() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
@@ -22,6 +29,7 @@
 
             if (username && password) {
                 // ここに登録処理を追加
+                setCookie('username', username, 7); // クッキーにユーザー名を保存（7日間有効）
                 alert('登録完了');
                 window.location.href = 'dashboard.html'; // 登録完了後にdashboard.htmlにリダイレクト
             } else {
