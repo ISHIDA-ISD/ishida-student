@@ -8,73 +8,43 @@
 </head>
 <body>
     <h1>ログインしてください</h1>
-    <input type="text" id="username" placeholder="ユーザー名">
-    <input type="password" id="password" placeholder="パスワード">
-    <button onclick="login()">ログイン</button>
-    <a href="register.html">まだアカウント持ってない？登録しましょう！</a>
+    <button onclick="loginAnonymously()">匿名ログイン</button>
     <p id="error-message" style="color:red;"></p> <!-- エラーメッセージ表示用の要素を追加 -->
 
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+    <!-- Firebase Auth SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
+    
     <script>
-        function setCookie(name, value, days) {
-            const d = new Date();
-            d.setTime(d.getTime() + (days*24*60*60*1000));
-            const expires = "expires="+ d.toUTCString();
-            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA9DLt8abEiur3ALzONh8voVYb8l-YpK2w",
+            authDomain: "ishida-73aa3.firebaseapp.com",
+            projectId: "ishida-73aa3",
+            storageBucket: "ishida-73aa3.appspot.com",
+            messagingSenderId: "404086879771",
+            appId: "1:404086879771:web:d50dc09c3f48c74fab6abe",
+            measurementId: "G-QYF6ETTFCK"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // 匿名ログイン機能
+        function loginAnonymously() {
+            auth.signInAnonymously()
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    alert('ログイン成功');
+                    window.location.href = 'https://ishida-isd.github.io/student/dashboard.html'; // ログイン成功後にdashboard.htmlにリダイレクト
+                })
+                .catch((error) => {
+                    const errorMessage = document.getElementById('error-message');
+                    errorMessage.textContent = error.message;
+                });
         }
-
-        function getCookie(name) {
-            const nameEQ = name + "=";
-            const ca = document.cookie.split(';');
-            for(let i=0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-            }
-            return null;
-        }
-
-        function login() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('error-message');
-
-            if (username && password) {
-                // ここにログイン処理を追加
-                setCookie('username', username, 365); // クッキーにユーザー名を保存（7日間有効）
-                alert('ログイン成功');
-                window.location.href = 'https://ishida-isd.github.io/student/dashboard.html'; // ログイン成功後にdashboard.htmlにリダイレクト
-            } else {
-                errorMessage.textContent = 'ユーザー名とパスワードを入力してください。';
-            }
-        }
-
-        window.onload = function() {
-            const username = getCookie('username');
-            if (username) {
-                window.location.href = 'https://ishida-isd.github.io/student/dashboard.html'; // クッキーにユーザー名がある場合、自動的にdashboard.htmlにリダイレクト
-            }
-        }
- // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyA9DLt8abEiur3ALzONh8voVYb8l-YpK2w",
-  authDomain: "ishida-73aa3.firebaseapp.com",
-  projectId: "ishida-73aa3",
-  storageBucket: "ishida-73aa3.firebasestorage.app",
-  messagingSenderId: "404086879771",
-  appId: "1:404086879771:web:d50dc09c3f48c74fab6abe",
-  measurementId: "G-QYF6ETTFCK"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
     </script>
 </body>
 </html>
