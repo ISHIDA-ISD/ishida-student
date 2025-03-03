@@ -5,32 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ユーザー登録</title>
     <link rel="stylesheet" href="./password.css"> <!-- 外部スタイルシートをリンク -->
-</head>
-<body>
-    <h1>登録しましょう！</h1>
-    <input type="text" id="username" placeholder="ユーザー名">
-    <input type="password" id="password" placeholder="パスワード">
-    <button onclick="register()">登録！</button>
-    <a href="login.html">ログインページへ</a>
-    <p id="error-message" style="color:red;"></p> <!-- エラーメッセージ表示用の要素を追加 -->
-
-    <!-- Firebase App (the core Firebase SDK) -->
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
-    <!-- Firebase Auth SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
-    <!-- Firebase Firestore SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"></script>
-
     <script>
         // Your web app's Firebase configuration
         const firebaseConfig = {
-            apiKey : "AIzaSyA9DLt8abEiur3ALzONh8voVYb8l-YpK2w" , 
-            authDomain : "ishida-73aa3.firebaseapp.com" , 
-            projectId : "ishida-73aa3" , 
-            storageBucket : "ishida-73aa3.firebasestorage.app" , 
-            messagingSenderId : "404086879771" , 
-            appId : "1:404086879771:web:d50dc09c3f48c74fab6abe" , 
-            measurementId : "G-QYF6ETTFCK"
+            apiKey: "AIzaSyA9DLt8abEiur3ALzONh8voVYb8l-YpK2w",
+            authDomain: "ishida-73aa3.firebaseapp.com",
+            projectId: "ishida-73aa3",
+            storageBucket: "ishida-73aa3.firebasestorage.app",
+            messagingSenderId: "404086879771",
+            appId: "1:404086879771:web:d50dc09c3f48c74fab6abe",
+            measurementId: "G-QYF6ETTFCK"
         };
 
         // Initialize Firebase
@@ -56,6 +43,21 @@
                 errorMessage.textContent = 'ユーザー名とパスワードを入力してください。';
             }
         }
+
+        window.onload = function() {
+            const username = getCookie('username');
+            if (username) {
+                window.location.href = 'https://ishida-isd.github.io/student/dashboard.html'; // クッキーにユーザー名がある場合、自動的にdashboard.htmlにリダイレクト
+            }
+        }
     </script>
+</head>
+<body>
+    <h1>登録しましょう！</h1>
+    <input type="text" id="username" placeholder="ユーザー名">
+    <input type="password" id="password" placeholder="パスワード">
+    <button onclick="register()">登録！</button>
+    <a href="login.html">ログインページへ</a>
+    <p id="error-message" style="color:red;"></p> <!-- エラーメッセージ表示用の要素を追加 -->
 </body>
 </html>

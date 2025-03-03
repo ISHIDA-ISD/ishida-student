@@ -5,40 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ログイン</title>
     <link rel="stylesheet" href="./password.css"> <!-- 外部スタイルシートをリンク -->
-</head>
-<body>
-    <h1>ログインしてください</h1>
-    <input type="text" id="username" placeholder="ユーザー名">
-    <input type="password" id="password" placeholder="パスワード">
-    <button onclick="login()">ログイン</button>
-    <a href="register.html">まだアカウント持ってない？登録しましょう！</a>
-    <p id="error-message" style="color:red;"></p> <!-- エラーメッセージ表示用の要素を追加 -->
-
-    <!-- Firebase App (the core Firebase SDK) -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
-    <!-- Firebase Auth SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
-    <!-- Firebase Firestore SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
     <script>
-        // Your web app's Firebase configuration
+        // Firebaseの初期化
         const firebaseConfig = {
-            apiKey : "AIzaSyA9DLt8abEiur3ALzONh8voVYb8l-YpK2w" , 
-            authDomain : "ishida-73aa3.firebaseapp.com" , 
-            projectId : "ishida-73aa3" , 
-            storageBucket : "ishida-73aa3.firebasestorage.app" , 
-            messagingSenderId : "404086879771" , 
-            appId : "1:404086879771:web:d50dc09c3f48c74fab6abe" , 
-            measurementId : "G-QYF6ETTFCK" 
+            // ここにあなたのFirebaseプロジェクトの設定を入力
         };
-
-        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
         const db = firebase.firestore();
 
-        // ユーザー名とパスワードを使ったログイン機能
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days*24*60*60*1000));
+            const expires = "expires="+ d.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i=0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
         async function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
@@ -48,8 +44,9 @@
                 try {
                     const userDoc = await db.collection('users').doc(username).get();
                     if (userDoc.exists && userDoc.data().password === password) {
+                        setCookie('username', username, 365); // クッキーにユーザー名を保存（7日間有効）
                         alert('ログイン成功');
-                        window.location.href = '/dashboard.html';  // ログイン成功後にdashboard.htmlにリダイレクト
+                        window.location.href = 'https://ishida-isd.github.io/student/dashboard.html'; // ログイン成功後にdashboard.htmlにリダイレクト
                     } else {
                         errorMessage.textContent = 'ユーザー名またはパスワードが間違っています。';
                     }
@@ -60,6 +57,21 @@
                 errorMessage.textContent = 'ユーザー名とパスワードを入力してください。';
             }
         }
+
+        window.onload = function() {
+            const username = getCookie('username');
+            if (username) {
+                window.location.href = 'https://ishida-isd.github.io/student/dashboard.html'; // クッキーにユーザー名がある場合、自動的にdashboard.htmlにリダイレクト
+            }
+        }
     </script>
+</head>
+<body>
+    <h1>ログインしてください</h1>
+    <input type="text" id="username" placeholder="ユーザー名">
+    <input type="password" id="password" placeholder="パスワード">
+    <button onclick="login()">ログイン</button>
+    <a href="register.html">まだアカウント持ってない？登録しましょう！</a>
+    <p id="error-message" style="color:red;"></p> <!-- エラーメッセージ表示用の要素を追加 -->
 </body>
 </html>
