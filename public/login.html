@@ -11,7 +11,6 @@
     <input type="text" id="username" placeholder="ユーザー名">
     <input type="password" id="password" placeholder="パスワード">
     <button onclick="login()">ログイン</button>
-    <button onclick="loginAnonymously()">匿名ログイン</button>
     <a href="register.html">まだアカウント持ってない？登録しましょう！</a>
     <p id="error-message" style="color:red;"></p> <!-- エラーメッセージ表示用の要素を追加 -->
 
@@ -19,13 +18,15 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
     <!-- Firebase Auth SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
-    
+    <!-- Firebase Firestore SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"></script>
+
     <script>
         // Your web app's Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyA9DLt8abEiur3ALzONh8voVYb8l-YpK2w",
             authDomain: "ishida-73aa3.firebaseapp.com",
-            projectId: "ishida-73aa3",  // 修正：ドメイン名ではなくプロジェクトIDを使用
+            projectId: "ishida-73aa3",
             storageBucket: "ishida-73aa3.appspot.com",
             messagingSenderId: "404086879771",
             appId: "1:404086879771:web:d50dc09c3f48c74fab6abe",
@@ -35,37 +36,26 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
-
-        // 匿名ログイン機能
-        function loginAnonymously() {
-            auth.signInAnonymously()
-                .then((userCredential) => {
-                    const user = userCredential.user;
-                    alert('ログイン成功');
-                    window.location.href = '/dashboard.html';  // ログイン成功後にdashboard.htmlにリダイレクト
-                })
-                .catch((error) => {
-                    const errorMessage = document.getElementById('error-message');
-                    errorMessage.textContent = error.message;
-                });
-        }
+        const db = firebase.firestore();
 
         // ユーザー名とパスワードを使ったログイン機能
-        function login() {
+        async function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const errorMessage = document.getElementById('error-message');
 
             if (username && password) {
-                auth.signInWithEmailAndPassword(username, password)
-                    .then((userCredential) => {
-                        const user = userCredential.user;
+                try {
+                    const userDoc = await db.collection('users').doc(username).get();
+                    if (userDoc.exists && userDoc.data().password === password) {
                         alert('ログイン成功');
                         window.location.href = '/dashboard.html';  // ログイン成功後にdashboard.htmlにリダイレクト
-                    })
-                    .catch((error) => {
-                        errorMessage.textContent = error.message;
-                    });
+                    } else {
+                        errorMessage.textContent = 'ユーザー名またはパスワードが間違っています。';
+                    }
+                } catch (error) {
+                    errorMessage.textContent = 'エラーが発生しました: ' + error.message;
+                }
             } else {
                 errorMessage.textContent = 'ユーザー名とパスワードを入力してください。';
             }
